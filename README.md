@@ -1,3 +1,6 @@
-# api_m_eks_cluster
+eks_cluster
 
-This project is to create the EKS cluster
+This project is to create the EKS cluster in the AWS environemnt.
+
+Pre-requisites
+1. AWS Account

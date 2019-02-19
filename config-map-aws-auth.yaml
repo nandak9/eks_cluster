@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::755431656685:role/nhs_apim_eks_cluster-worker-role
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+    - rolearn: arn:aws:iam::755431656685:role/nhs_apim_eks_cluster-master
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+  mapUsers: |
+    - userarn: arn:aws:iam::455198256385:user/Bibek
+      username: Bibek
+      groups: 
+        - system:masters
+    - userarn: arn:aws:iam::455198256385:user/EKSCluster
+      username: EKSCluster
+      groups:
+        - system:masters
+
